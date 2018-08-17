@@ -28,13 +28,13 @@ Coded by: pyshivam
 """
 
 # check for if this script is running as root or not.
-if [ $EUID -ne 0 ]
+if [ `id -u` -ne 0 ]
   then echo "Please run as root"
   exit
 fi
 
 # Taking information about project and server.
-echo "Flask Application name should be without any spaces."
+echo "Flask Application name should be without any spaces and special characters."
 echo -n "Enter Flask application name: "
 read app_name
 echo " "
