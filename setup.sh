@@ -74,6 +74,7 @@ a2enmod wsgi
 # Creating a Flask App
 cd /var/www/
 
+# Creating the application directory structure
 mkdir ${app_name}
 cd ${app_name}
 mkdir ${app_name}
@@ -84,7 +85,7 @@ echo
 echo "##################################################"
 echo "Making test file."
 
-# Logic of Flask Application goes here.
+# creating the __init__.py file that will contain the flask application logic. main.py
 echo """
 from flask import Flask
 app = Flask(__name__)
@@ -94,7 +95,9 @@ def hello():
 """ > __init__.py
 
 
-# /etc/apache2/sites-available/FlaskApp.conf
+# This will create configuration file. if give subdomain.example.com
+# then your flask app accessible by subdomain.example.com i.e it will create
+# subdomain for your flask app.
 echo """<VirtualHost *:80>
 		ServerName ${server_name}
 		ServerAdmin ${server_admin}
@@ -115,12 +118,15 @@ echo """<VirtualHost *:80>
 echo
 echo
 echo "Virtual host created, enabling virtual host."
-
 a2ensite ${app_name}
+
 echo
 echo
 echo "Creating wsgi file for flask application."
 
+
+# this file is wsgi script, here you put your run.py code without
+# app.run(). shebang (#!) is most important
 echo """#!/usr/bin/env python3
 import sys
 import logging
