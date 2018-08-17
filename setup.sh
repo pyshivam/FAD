@@ -43,6 +43,7 @@ echo -n "Enter server name: "
 read server_name
 echo " "
 echo "Enter server admin email address. \nE.g: admin@example.com"
+echo -n "Enter email: "
 read server_admin
 echo " "
 echo "Press Enter for default Random String."
@@ -78,7 +79,9 @@ cd ${app_name}
 mkdir ${app_name}
 cd ${app_name}
 mkdir static templates
-
+echo
+echo
+echo "############################################################################################"
 echo "Making test file."
 
 # Logic of Flask Application goes here.
@@ -109,11 +112,13 @@ echo """<VirtualHost *:80>
 		LogLevel warn
 		CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>""" > "/etc/apache2/sites-available/${app_name}.conf"
-
+echo
+echo
 echo "Virtual host created, enabling virtual host."
 
 a2ensite ${app_name}
-
+echo
+echo
 echo "Creating wsgi file for flask application."
 
 echo """#!/usr/bin/env python3
@@ -125,6 +130,12 @@ sys.path.insert(0,'/var/www/${app_name}/')
 from ${app_name} import app as application
 application.secret_key = 'Add your secret key'
 """ > "/var/www/${app_name}/${app_name}.wsgi"
+echo
+echo
+echo "Rebooting Apache server to apply changes."
+systemctl reload apache2
 
+echo
+echo
 echo "now you can access your application."
 
