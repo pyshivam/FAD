@@ -81,7 +81,7 @@ cd ${app_name}
 mkdir static templates
 echo
 echo
-echo "############################################################################################"
+echo "##################################################"
 echo "Making test file."
 
 # Logic of Flask Application goes here.
@@ -99,7 +99,7 @@ echo """<VirtualHost *:80>
 		ServerName ${server_name}
 		ServerAdmin ${server_admin}
 		WSGIScriptAlias / /var/www/${app_name}/${app_name}.wsgi
-		<Directory /var/www/FlaskApp/FlaskApp/>
+		<Directory /var/www/${app_name}/${app_name}/>
 			Order allow,deny
 			Allow from all
 		</Directory>
@@ -108,9 +108,9 @@ echo """<VirtualHost *:80>
 			Order allow,deny
 			Allow from all
 		</Directory>
-		ErrorLog ${APACHE_LOG_DIR}/error.log
+		ErrorLog \${APACHE_LOG_DIR}/error.log
 		LogLevel warn
-		CustomLog ${APACHE_LOG_DIR}/access.log combined
+		CustomLog \${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>""" > "/etc/apache2/sites-available/${app_name}.conf"
 echo
 echo
