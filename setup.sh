@@ -145,3 +145,4 @@ echo
 echo
 echo "now you can access your application."
 
+# a2dissite -p flask_app_name
