@@ -66,6 +66,7 @@ pip3 install flask
 # Mod_wsgi is an Apache HTTP server mod that enables Apache to serve Flask applications.
 # command to install mod_wsgi
 apt -y install libapache2-mod-wsgi
+apt -y install libapache2-mod-wsgi-py3
 
 # To enable mod_wsgi
 a2enmod wsgi
