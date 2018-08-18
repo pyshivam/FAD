@@ -108,6 +108,9 @@ echo """<VirtualHost *:80>
 		<Directory /var/www/${app_name}/${app_name}/>
 			Order allow,deny
 			Allow from all
+			WSGIProcessGroup ${app_name}
+			WSGIApplicationGroup %{GLOBAL}
+			Require all granted
 		</Directory>
 		Alias /static /var/www/${app_name}/${app_name}/static
 		<Directory /var/www/${app_name}/${app_name}/static/>
@@ -137,7 +140,7 @@ logging.basicConfig(stream=sys.stderr)
 sys.path.insert(0,'/var/www/${app_name}/')
 
 from ${app_name} import app as application
-application.secret_key = 'Add your secret key'
+application.secret_key = '${secret_key}'
 """ > "/var/www/${app_name}/${app_name}.wsgi"
 echo
 echo
