@@ -12,7 +12,6 @@ def check_for_root():
         print("""
 
 
-
         FFFFFFFFFFFFFFFFFFFFFF      AAA               DDDDDDDDDDDDD
         F::::::::::::::::::::F     A:::A              D::::::::::::DDD
         F::::::::::::::::::::F    A:::::A             D:::::::::::::::DD
@@ -31,7 +30,7 @@ def check_for_root():
         FFFFFFFFFFF  AAAAAAA                   AAAAAAADDDDDDDDDDDDD
 
 
-                                                            Flask App Deploy v1.0
+                                                            Flask App Deploy v0.1
 
 Coded by: pyshivam
 """)
