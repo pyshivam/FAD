@@ -57,18 +57,41 @@ then
 fi
 
 
-# installing requirements
-apt update
-apt -y install apache2 python3 python3-pip python3-dev
-pip3 install flask
+packages=('apache2' 'python3' 'python3-pip' 'python3-dev')
+
+for i in ${packages[@]}; do
+    echo "Checking: ${i}"
+    dpkg -s ${i} &> /dev/null
+
+    if [ $? -eq 0 ]; then
+        echo "${i} is already installed!"
+    else
+        echo "${i} is NOT installed!"
+        echo "Installing ${i}..."
+        apt -y install ${i}
+        if [ $? -ne 0 ]; then
+            echo "Error while installing package ${i}"
+        fi
+    fi
+done
+
 
 # Install and Enable mod_wsgi
 # WSGI (Web Server Gateway Interface) is an interface between web servers and web apps for python.
 # Mod_wsgi is an Apache HTTP server mod that enables Apache to serve Flask applications.
 # command to install mod_wsgi
-# Uncomment following line for python2's flask server
-#apt -y install libapache2-mod-wsgi
-apt -y install libapache2-mod-wsgi-py3
+dpkg -s 'libapache2-mod-wsgi-py3' &> /dev/null
+if [ $? -eq 0 ]; then
+    echo "libapache2-mod-wsgi-py3 is already installed!"
+else
+    echo "libapache2-mod-wsgi-py3 is NOT installed!"
+    echo "Installing libapache2-mod-wsgi-py3..."
+    apt -y install libapache2-mod-wsgi-py3
+    if [ $? -ne 0 ]; then
+        echo "Error while installing package ${i}"
+    fi
+fi
+
 
 # To enable mod_wsgi
 a2enmod wsgi
