@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+import shutil
 
 
 def check_for_root() -> None:
@@ -47,7 +48,14 @@ def make_file_structure(app_name, server_name, server_admin, secret_key):
     os.chdir('/var/www/')
 
     # Making folder for our website or project.
-    os.mkdir(app_name)
+    try:
+        os.mkdir(app_name)
+    except FileExistsError:
+        print("File already exists.")
+        dis = input("Do you want to overwrite?(Y/n): ")
+        if dis.lower() == 'yes' or dis.lower() == 'y':
+            shutil.rmtree(app_name)
+            os.mkdir(app_name)
 
     # Changing directory to flask app.
     os.chdir(app_name)
@@ -62,10 +70,10 @@ def make_file_structure(app_name, server_name, server_admin, secret_key):
 
 def make_config(app_name, server_name, server_admin, secret_key):
     # Changing Directory to '/var/www/'+app_name
-    os.chdir('/var/www/' + app_name)
+    os.chdir('/var/www/' + app_name + "/" + app_name)
 
     with open('__init__.py', 'w+') as init:
-        with open(pwd + '__init__', 'r') as conf:
+        with open(pwd + '/__init__', 'r') as conf:
             print(conf.read(), file=init)
 
     config = """
@@ -107,8 +115,8 @@ import logging
 logging.basicConfig(stream=sys.stderr)
 sys.path.insert(0,'/var/www/{app_name}/')
 
-from ${app_name} import app as application
-application.secret_key = '{secret_key}'
+from {app_name} import app as application
+application.secret_key = {secret_key}
 """.format(app_name=app_name, secret_key=secret_key)
 
     with open("/var/www/{app_name}/{app_name}.wsgi".format(app_name=app_name), "w+") as conf:
