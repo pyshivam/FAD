@@ -29,7 +29,7 @@ You can use python2 or python3 both are supported. I will show using python3.
 To get python3 and pip, execute blow command.
 
 ```commandline
-sudo apt-get install python3 and python3-pip 
+sudo apt-get install python3 python3-pip 
 ```
 
 We will need flask (Obviously)
