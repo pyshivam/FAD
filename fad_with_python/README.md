@@ -2,7 +2,7 @@
 FAD will help you to deploy flask application on apache web server for production.
 FAD is written in python
 
-##Getting Started
+## Getting Started
 Flask is a minimalist but extremely functional - and powerful - framework that is hugely popular and 
 very much extensible with a great choice of third party libraries (e.g. Flask-WTF or Flask-SQLAlchemy). 
 This developer friendly framework is a great way to start web development using Python, 
