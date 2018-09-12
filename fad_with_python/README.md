@@ -26,10 +26,11 @@ used as a point of entry by the web-server to pass the requests which are to be 
 ### Prerequisites
 You can use python2 or python3 both are supported. I will show using python3.
 
-To get python3 and pip, execute blow command.
+We need git for cloning repository to our machine. 
+To get python3, pip and git, execute blow command.
 
 ```commandline
-sudo apt-get install python3 python3-pip 
+sudo apt-get install python3 python3-pip git
 ```
 
 We will need flask (Obviously)
@@ -38,4 +39,8 @@ pip install flask
 ```
 
 ## Installation
+To get this project to your machine.
+```commandline
+git clone https://www.github.com/pyshivam/FAD
+```
 

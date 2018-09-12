@@ -3,7 +3,7 @@ import os
 import shutil
 
 
-def check_for_root() -> None:
+def check_for_root():
     if os.getuid() != 0:
         print("Need root access to run this file. Exiting :(")
         exit(1)
@@ -149,5 +149,5 @@ def main() -> None:
 if __name__ == '__main__':
     check_for_root()
     banner()
-    pwd: str = os.getcwd()
+    pwd = os.getcwd()
     main()
