@@ -29,6 +29,7 @@ banner(){
          """
 }
 
+
 banner
 # check for if this script is running as root or not.
 if [ `id -u` -ne 0 ]
@@ -36,7 +37,8 @@ if [ `id -u` -ne 0 ]
   exit 1
 fi
 
-packages=('apache2' 'python3' 'python3-pip' 'python3-dev')
+
+packages=('apache2' 'python3' 'python3-pip' 'python3-dev', 'python3-flask')
 
 for i in ${packages[@]}; do
     echo "Checking: ${i}"
