@@ -40,6 +40,7 @@ pip install flask
 
 ## Installation
 To get this project to your machine.
+
 ```commandline
 git clone https://www.github.com/pyshivam/FAD
 ```
