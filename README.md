@@ -54,9 +54,11 @@ We use SemVer for versioning. For the versions available, see the tags on this r
 ## Author
 * [**Shivam Gupta (pyshivam)**](https://www.github.com/pyshivam) 
 
-
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 * Inspiration :- [DigitalOcean Tutorial](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
+
+## Copyright
+Copyright (c) 2018, Shivam Gupta. All rights reserved.
