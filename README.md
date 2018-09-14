@@ -57,7 +57,7 @@ Then run *setup.sh* file as root
 sudo ./setup.sh
 ``` 
 
-After Executing `sudo ./setup.sh ` command it will install all the necessary packages for FAD run properly.
+After Executing `sudo ./setup.sh ` command it will install all the necessary packages for FAD to run properly.
 
 Now you can execute run `FAD.py`.
 ```commandline
