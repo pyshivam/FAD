@@ -1,5 +1,5 @@
 # FAD - Flask Application Deploy
-FAD will help you to deploy flask application on apache web server for production.
+FAD will help you to deploy flask application on apache web server for production and development.
 FAD is written in python
 
 ## Getting Started
