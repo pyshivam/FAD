@@ -42,6 +42,21 @@ pip install flask
 To get this project to your machine.
 
 ```commandline
-git clone https://www.github.com/pyshivam/FAD
+git clone https://github.com/pyshivam/FAD.git
 ```
 
+## Contributing
+All type of contribution are welcome.
+
+## Versioning
+We use SemVer for versioning. For the versions available, see the tags on this repository.
+
+## Author
+* [**Shivam Gupta (pyshivam)**](https://www.github.com/pyshivam) 
+
+
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+* Inspiration :- [DigitalOcean Tutorial](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
