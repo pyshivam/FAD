@@ -44,6 +44,25 @@ To get this project to your machine.
 ```commandline
 git clone https://github.com/pyshivam/FAD.git
 ```
+Goto FAD directory.
+```commandline
+cd FAD
+``` 
+Now give Executable permission to `setup.sh` and `FAD.py` file.
+```commandline
+chmod +x setup.sh FAD.py
+```
+Then run *setup.sh* file as root
+```commandline
+sudo ./setup.sh
+``` 
+
+After Executing `sudo ./setup.sh ` command it will install all the necessary packages for FAD run properly.
+
+Now you can execute run `FAD.py`.
+```commandline
+sudo ./FAD.py
+``` 
 
 ## Contributing
 All type of contribution are welcome.
