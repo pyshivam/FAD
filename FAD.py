@@ -33,7 +33,7 @@ def banner():
             FFFFFFFFFFF  AAAAAAA                   AAAAAAADDDDDDDDDDDDD
 
 
-                                                                Flask App Deploy v0.1
+                                                                Flask App Deploy v1.0.1
 
     Coded by: pyshivam
 """)
@@ -72,6 +72,7 @@ def make_config(app_name, server_name, server_admin, secret_key):
     # Changing Directory to '/var/www/'+app_name
     os.chdir('/var/www/' + app_name + "/" + app_name)
 
+    # Main program of your project logic goes here
     with open('__init__.py', 'w+') as init:
         with open(pwd + '/__init__', 'r') as conf:
             print(conf.read(), file=init)
@@ -109,6 +110,7 @@ def make_config(app_name, server_name, server_admin, secret_key):
         print("Error occurred")
         exit(1)
 
+    # its your run file
     config = """#!/usr/bin/env python3
 import sys
 import logging
